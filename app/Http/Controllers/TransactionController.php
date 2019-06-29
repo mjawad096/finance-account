@@ -122,6 +122,6 @@ class TransactionController extends Controller
     public function destroy(Transaction $transaction)
     {
         $transaction->delete();
-        return back()->with('success', 'Record Deleted successfully');
+        return redirect(route('transaction.index'))->with('success', 'Record Deleted successfully');
     }
 }
