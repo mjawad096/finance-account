@@ -92,10 +92,10 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaction $transaction)
+    public function edit(Request $request, Transaction $transaction)
     {
         $transactions = Transaction::orderBy('date', 'ASC')->get();
-        return view('transaction.index', compact('transactions', 'transaction'));
+        return view('transaction.index', compact('transactions', 'transaction', 'request'));
     }
 
     /**
