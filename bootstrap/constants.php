@@ -1,3 +1,3 @@
 <?php
 define('INCOME', 1);
-define('EXPENCE', 2);
+define('EXPENSE', 2);

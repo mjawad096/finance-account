@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->double('amount');
-            $table->enum('type', [INCOME, EXPENCE]);
+            $table->enum('type', [INCOME, EXPENSE]);
             $table->timestamp('date');
             $table->timestamps();
         });
