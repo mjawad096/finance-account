@@ -15,7 +15,7 @@ class TransactionController extends Controller
      */
     public function index(Request $request)
     {
-        dd(config('app'))
+        dd(config('app'));
         $transactions = Transaction::orderBy('date', 'ASC');
 
         if($request->get('from')){
