@@ -121,13 +121,18 @@
                     </thead>
                     <tbody>
                         @php
-                            $balance = 0
+                            $balance = 0;
+                            $total_amount = 0;
+                            $total_balance = 0;
                         @endphp
                         @foreach ($transactions as $transaction)
                             @php
                                 $multiple = $transaction->type == INCOME ? 1 : -1;
                                 $amount = $multiple * $transaction->amount;
                                 $balance += $amount;
+
+                                $total_amount += $transaction->amount;
+                                $total_balance += $balance;
                             @endphp
 
                             <tr>
@@ -149,6 +154,15 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    <tfoot>                        
+                        <tr>                            
+                            <th colspan="3" class="text-right">Total</th>
+                            <th>{{ $total_amount }}</th>
+                            <th></th>
+                            <th>{{ $total_balance }}</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
