@@ -15,7 +15,8 @@ class TransactionController extends Controller
      */
     public function index(Request $request)
     {
-        $transactions = Transaction::orderBy('date', 'ASC');
+        // $transactions = Transaction::orderBy('date', 'ASC');
+        $transactions = Transaction::query();
 
         if($request->get('from')){
             $transactions->where('date', '>=', new Carbon($request->get('from')));
